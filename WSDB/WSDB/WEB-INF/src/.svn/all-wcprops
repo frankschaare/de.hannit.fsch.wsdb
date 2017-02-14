@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src
+END
+log4j.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/log4j.cfg
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/hibernate.cfg.xml
+END
+Thema.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/Thema.hbm.xml
+END
+WSDBResources.properties
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/WSDBResources.properties
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/build.xml
+END
+displaytag_de_DE.properties
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/displaytag_de_DE.properties
+END
+Einrichtung.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/Einrichtung.hbm.xml
+END

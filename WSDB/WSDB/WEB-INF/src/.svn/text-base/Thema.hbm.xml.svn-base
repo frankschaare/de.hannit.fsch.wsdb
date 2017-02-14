@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class 	name="de.hannit.fsch.wsdb.Thema" 
+				table="Formulare_Thema" 
+				dynamic-insert="true"
+				dynamic-update="true"
+				select-before-update="true"
+				optimistic-lock="version">
+		<!-- Primärschlüssel für das Thema -->
+		<id name="id" type="integer" unsaved-value="null">
+			<column name="id" sql-type="integer" not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<!-- Neben der ID hat eine Thema nur zwei weitere Felder, thema und team -->
+		<property name="thema">
+			<column name="thema" length="255" not-null="true"/>
+		</property>
+		<property name="team">
+			<column name="team" length="10" not-null="true"/>
+		</property>
+	</class>
+</hibernate-mapping>

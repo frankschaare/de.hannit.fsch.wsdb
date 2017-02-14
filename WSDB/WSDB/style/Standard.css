@@ -1,0 +1,384 @@
+body	{
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		leftmargin="0" 
+		rightmargin="0" 
+		topmargin="0" 
+		bottommargin="0" 
+		marginwidth="0" 
+		marginheight="0"
+		}
+
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+a.nav{font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 12px;font-weight:normal;color: #000000;text-decoration: none;}
+a.nav:active{font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 12px;color: #000000; text-decoration: none;}
+a.nav:hover{font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 12px;color: #000000;text-decoration: none;}
+
+.box 
+{
+width: 870px; 
+height: 518px;
+background-color: silver; 
+border: 1px solid black; 
+}
+div.errors
+{
+background-color:#FF0000;
+color:#FFFFFF;
+font-size: 10px;
+font-weight:bold;
+text-align:center;
+vertical-align:middle;
+width:100%;
+}
+div.invisible
+{
+display:none;
+}
+div.button
+{
+background-color:#D6D3CE;
+border-width:1px;
+border-color:#424142;
+text-align:center;
+}
+input
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border-style:groove;
+}
+input.Angaben
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	border-style:groove;
+	width:600px;	
+}
+input.Textfelder 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	border-style:groove;
+}
+input.BreitDefault 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	background-color: #FFFFFF;
+	vertical-align: baseline;
+	text-align: left;
+	width:300px;	
+}
+input.BreitError 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	vertical-align: baseline;
+	text-align: left;
+	width:300px;	
+}
+input.DatumDefault 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	background-color: #FFFFFF;
+	vertical-align: baseline;
+	text-align: left;
+	width:80px;	
+}
+input.5-stellig
+{
+	width:50px;	
+}
+input.20-stellig
+{
+	width:200px;	
+}
+input.300px
+{
+	width:300px;	
+}
+input.DatumError 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	vertical-align: baseline;
+	text-align: left;
+
+	width:80px;	
+}
+
+input.Fehler 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FF0000;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+input.Betrag 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: right;
+	white-space: normal;
+	
+}
+
+input.Submit 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;	
+	width:160px;	
+}
+
+input.Login 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-color: #FFFFFF;
+	vertical-align: baseline;
+	text-align: left;
+	width:80px;
+	border-style:groove;		
+}
+input.invisible
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	color: #000000;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	white-space: normal;
+	width:100px;
+	display: none;	
+	
+}
+input.defaultBox
+{
+border-style:none;
+cursor:hand;
+}
+Select 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	white-space: normal;
+	border-style:groove;
+	width:200px;
+}
+Select.invisible 
+{
+	display: none;
+}
+Select.sachgebiet 
+{
+	width:80px;
+}
+
+Select.Fehler 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #FF0000;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	white-space: normal;
+	font-weight: bold;
+	
+}
+textarea
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	border-top-style:none;      /* nur oben */
+	border-bottom-style:solid;   /* nur unten */
+	border-left-style:none;     /* nur links */
+	border-right-style:none; 
+	border-width:1px;
+	border-color: #426f9b;
+	width:300px;	
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 0px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+
+td.bottom {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #426f9b;
+	
+}
+td.top {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #426f9b;
+	
+}
+td.rechts {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #426f9b;
+	
+}
+
+td.TagesHilfe {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+
+td.xml {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #426F9B;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #426F9B;
+	color: #FFFFFF;
+}
+table {
+	border: thin solid #FFFFFF;
+
+}
+
+table.Rahmen {
+	border: thin solid #8EB3D2;
+
+}
+ul
+{
+	list-style-type:square;
+}
+li
+{
+margin-top:20px;
+}

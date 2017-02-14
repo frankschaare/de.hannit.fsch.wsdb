@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dokumentation Widerspruchsdatebank - Benutzerauthentifizierung</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="../../style/Dokumentation.css">
+</head>
+
+<body>
+<div align="center">
+  <h4>Vorgang Wizard - Schritt 2 </h4>
+</div>
+<p>Im zweiten Schritt werden Beteiligte am Verfahren erfasst. Im Widerspruchsverfahren sind bis zur Zeit 3 Arten von Beteiligten m&ouml;glich:</p>
+<ul>
+  <li>Verfahrensf&uuml;hrer</li>
+  <li>Betreuer</li>
+  <li>Bevollm&auml;chtigte</li>
+</ul>
+<p>Zus&auml;tzliche Arten von Beteilgten k&ouml;nnen erfasst werden, in die Datenbanktabelle 'Verfahrensbeteiligte' erweitert wird. </p>
+<p>Vorgabe der Fachsbereichsleitung war es jedoch, dass maximal ein Beteiligter erfasst werden kann.</p>
+<p>Die Beteiligten sind grunds&auml;tzlich Personen(-Objekte), die &uuml;ber ein 'Art' Attribut verf&uuml;gen. Dieses Attribut macht eine Unterscheidung m&ouml;glich. </p>
+<p align="center"><img src="../Bilddateien/VorgangWizard2JSP.jpg"></p>
+<p class="bildunterschrift">Die JSP mit den Feldinhalten und den Aktionen </p>
+<p>Die Feldinhalte werden durch den Struts Validator geprüft. </p>
+<p>Ist alles richtig, wird die Klasse 'VorgangWizard2' aufgerufen. Dort wird gepr&uuml;ft, ob das Feld Nachname leer ist, oder nicht. Ist das Feld nicht leer, wird der Vertreter aus der, im request abgelegten FormBean, in die Session kopiert, in der ebenfalls ein Vorgangsobjekt existiert.</p>
+<p>Bei Erfolg wird der n&auml;chste Schritt aufgerufen, die Seite 'VorgangWizard3.jsp'.</p>
+</body>
+</html>

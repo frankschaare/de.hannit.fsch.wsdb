@@ -1,0 +1,39 @@
+@charset "utf-8";
+body, p, td, th, div, input, select
+{
+font-family: Tahoma, Verdana, Arial, sans-serif;
+font-size:12px;
+}
+
+input.300px {width:100%;}
+input.Submit {width:160px;}
+
+table.Thema
+{
+border: 1px solid Background;
+}
+
+div.ActiveBorder{background-color:ActiveBorder;}
+div.AppWorkspace{background-color:AppWorkspace;}
+div.Background{background-color:Background;}
+
+div.ButtonFace{background-color:ButtonFace;}
+div.ButtonHighlight{background-color:ButtonHighlight;}
+div.ButtonShadow{background-color:ButtonShadow;}
+div.ButtonText{background-color:ButtonText;color:#FFFFFF;}
+
+div.Window{background-color:Window;}
+div.WindowFrame{background-color:WindowFrame;}
+div.WindowText{background-color:WindowText;color:#FFFFFF;}      
+      
+div.InfoBackground{background-color:InfoBackground;}
+div.InfoText{background-color:InfoText;}
+            
+      
+
+      
+
+      
+
+
+

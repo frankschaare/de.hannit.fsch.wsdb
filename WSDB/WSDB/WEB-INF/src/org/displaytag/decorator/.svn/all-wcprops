@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator
+END
+DecoratorFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/DecoratorFactory.java
+END
+TableDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/TableDecorator.java
+END
+AutolinkColumnDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/AutolinkColumnDecorator.java
+END
+Decorator.class
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/Decorator.class
+END
+Decorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/Decorator.java
+END
+AutolinkColumnDecorator.class
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/AutolinkColumnDecorator.class
+END
+TableDecorator.class
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/TableDecorator.class
+END
+DecoratorFactory.class
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/DecoratorFactory.class
+END
+ColumnDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/ColumnDecorator.java
+END
+ColumnDecorator.class
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/decorator/ColumnDecorator.class
+END

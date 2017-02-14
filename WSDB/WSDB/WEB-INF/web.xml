@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>Hannit Widerspruchsdatenbank</display-name>
+	<!-- Kontextparameter für die Log4J Konfigurationsdatei  -->
+	<context-param>
+		<param-name>Log4JConfig</param-name>
+		<param-value>WEB-INF/classes/Log4J.cfg</param-value>
+		<description>Pfad zur Konfigurationsdatei</description>
+	</context-param>
+	<listener>
+		<listener-class>listeners.SessionListener</listener-class>
+	</listener>
+	<!-- Das Struts ActionServlet wird überschrieben, um Hibernate und Log4J zu initialisieren. -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>de.hannit.fsch.wsdb.CustomActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<!-- Standard Action Servlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<!-- The Usual Welcome File List -->
+	<welcome-file-list>
+		<welcome-file>pages/Index.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- Struts Tag Library Descriptors -->
+	<taglib>
+		<taglib-uri>/tags/struts-bean</taglib-uri>
+		<taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/tags/struts-html</taglib-uri>
+		<taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/tags/struts-logic</taglib-uri>
+		<taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/tags/struts-nested</taglib-uri>
+		<taglib-location>/WEB-INF/struts-nested.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/tags/struts-tiles</taglib-uri>
+		<taglib-location>/WEB-INF/struts-tiles.tld</taglib-location>
+	</taglib>
+	<!-- DisplayTags -->
+	<taglib>
+		<taglib-uri>http://displaytag.sourceforge.net/</taglib-uri>
+		<taglib-location>/WEB-INF/displaytag-11.tld</taglib-location>
+	</taglib>
+	<!-- TreeTag -->
+	<taglib>
+		<taglib-uri>treetag</taglib-uri>
+		<taglib-location>/WEB-INF/treetag.tld</taglib-location>
+	</taglib>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Widerspruchsdatenbank</web-resource-name>
+			<url-pattern>*.do</url-pattern>
+			<url-pattern>/Einrichtung/*</url-pattern>
+			<url-pattern>/Verwaltung/*</url-pattern>
+			<url-pattern>/Vorgang/*</url-pattern>
+			<url-pattern>/Widerspruch/*</url-pattern>
+			<http-method>DELETE</http-method>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+			<http-method>PUT</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>50.00</role-name>
+			<role-name>50.01</role-name>
+			<role-name>50.02</role-name>
+			<role-name>50.04</role-name>
+			<role-name>50.05</role-name>
+			<role-name>50.06</role-name>			
+			<role-name>Administrator</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login/loginDetail.jsp</form-login-page>
+			<form-error-page>/login/loginError.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50</role-name>
+	</security-role>
+	<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50.00</role-name>
+	</security-role>
+		<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50.01</role-name>
+	</security-role>
+		<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50.02</role-name>
+	</security-role>
+		<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50.04</role-name>
+	</security-role>
+		<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50.05</role-name>
+	</security-role>
+		<security-role>
+		<description>Standard Benutzer fuer die Applikation</description>
+		<role-name>50.06</role-name>
+	</security-role>
+		<security-role>
+		<description>Administrator fuer die Applikation</description>
+		<role-name>Administrator</role-name>
+	</security-role>
+</web-app>

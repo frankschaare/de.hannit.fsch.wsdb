@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung
+END
+Adresse.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Adresse.java
+END
+Aufgabe.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Aufgabe.java
+END
+UpdateSachbearbeiter.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/UpdateSachbearbeiter.java
+END
+Benutzer.class
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Benutzer.class
+END
+Vertreter.class
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Vertreter.class
+END
+ErfassungSachbearbeiter.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/ErfassungSachbearbeiter.java
+END
+SelectSachbearbeiter.class
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/SelectSachbearbeiter.class
+END
+Sachgebiet.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Sachgebiet.java
+END
+Einrichtung.class
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Einrichtung.class
+END
+RechteManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/RechteManager.java
+END
+Sachbearbeiter.class
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Sachbearbeiter.class
+END
+RechteManager.class
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/RechteManager.class
+END
+Sachbearbeiter.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Sachbearbeiter.java
+END
+Einrichtung.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Einrichtung.java
+END
+Sachgebiet.class
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Sachgebiet.class
+END
+ErfassungSachbearbeiter.class
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/ErfassungSachbearbeiter.class
+END
+SelectSachbearbeiter.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/SelectSachbearbeiter.java
+END
+Benutzer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Benutzer.java
+END
+Vertreter.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Vertreter.java
+END
+UpdateSachbearbeiter.class
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/UpdateSachbearbeiter.class
+END
+Adresse.class
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Adresse.class
+END
+Aufgabe.class
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Aufgabe.class
+END
+Person.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/stabsstelle/!svn/ver/618/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Person.java
+END
+BearbeitungBenutzerrechte.class
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/BearbeitungBenutzerrechte.class
+END
+BearbeitungBenutzerrechte.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/BearbeitungBenutzerrechte.java
+END
+Person.class
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/de/hannit/fsch/benutzerverwaltung/Person.class
+END

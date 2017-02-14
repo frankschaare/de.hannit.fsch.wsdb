@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dokumentation Widerspruchsdatebank - Benutzerauthentifizierung</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="../style/Dokumentation.css">
+</head>
+
+<body>
+<div align="center">
+  <h4>Fehlermeldungen</h4>
+</div>
+<p>Es gibt eine Reihe von M&ouml;glichkeiten, Fehlerzust&auml;nde in einer Webapplikation darzustellen. Auf dieser Seite erfahren Sie, welche davon in der Widerspruchsdatenbank benutzt werden, und wie das Ganze im Detail funktioniert.</p>
+<p><strong><a name="JavaScriptBoxen">JavaScript</a></strong></p>
+<p>Die 'anwendungstypischste' Form, den Benutzer &uuml;ber Fehler zu informieren, sind Message-Boxen, in JavaScript 'Alert' genannt:</p>
+<p align="center"><img src="Bilddateien/JavaScriptAlert.gif"></p>
+<p class="bildunterschrift">Ein Beispiel für einen Alert</p>
+<p>Will man nun aber nicht jür jeden möglichen Fehler eine eigene (redundante)  JSP bauen, ist man gezwungen, den JavaScript Code dynamisch einzuf&uuml;gen. Ist ein Fehler aufgetreten, erscheint der Alert, sonst nicht. Bis dieser w&uuml;nschenswerte Zustand erreicht ist, ist der Weg weiter, als man vielleicht am Anfang denkt.</p>
+<p>Wird ein Fehler festgestellt, nutzt die Widerspruchsdatenbank den Struts eigenen Fehlermechanismus. Dazu wird zun&auml;chst ein Fehler oder Messageobjekt erzeugt und im Request gespeichert:</p>
+<p class="code"> private void setMessage(HttpServletRequest req,String messageKey)<br />
+{<br />
+ActionErrors errors = new ActionErrors();<br />
+errors.add(ActionErrors.GLOBAL_ERROR,new ActionError(messageKey));<br />
+this.saveErrors(req,errors); <br />
+} </p>
+<p>Der Aufrufparameter 'messageKey' entspricht einem Schl&uuml;ssel in der Datei 'WSDBResources.properties', beispielsweise:</p>
+<p class="code">DatensatzVorhanden=var fehler = Es ist bereits ein Vorgang mit gleichem Namen vorhanden !; </p>
+<p>Die Message-Funktion der Properties-Datei wird also 'missbraucht', um eine JavaScript Variable dynamisch in die aufrufende JSP zu einzubauen. </p>
+<p>Danach wird an die aufrufende JSP zur&uuml;ckverwiesen. Diese fragt mit dem Struts-Tag '&lt;logic:messagesPresent&gt;' ab, ob sich ein Fehlerobjekt im Request befindet:</p>
+<p class="code">&lt;logic:messagesPresent&gt;<br />
+	&lt;html:errors /&gt;<br />
+&lt;/logic:messagesPresent&gt;</p>
+<p> Da dies hier der Fall ist, wird der Tag '<span class="code">&lt;html:errors /&gt;</span>' mit dem (Beispiel)Wert '<span class="code">var fehler = Es ist bereits ein Vorgang mit gleichem Namen vorhanden !;</span>' gef&uuml;llt. </p>
+<p>Zus&auml;tzlich ist in die JSP folgende JavaScript Funktion eingebaut:</p>
+<p class="code">if (fehler != null){alert(fehler);} </p>
+<p>Es wird also gepr&uuml;ft, ob die Variable 'fehler' vorhanden ist. Ist dies der Fall, wird ein Alert mit dem Inhalt der Variable ausgegeben. Abschliessend muss noch sichergestellt werden, dass die JavaScript Funktion in jedem Fall aufgerufen wird. Zu diesem Zweck befindet Sie sich im Funktionsblock 'init()' welcher durch die Anweisung:</p>
+<p class="code">&lt;body onLoad=&quot;init()&quot;&gt;</p>
+<p>bei jedem Laden der JSP automatisch aufgerufen wird.</p>
+<p>Auf den ersten Blick wirkt dieser Mechanismus kompliziert und verwirrend. Hat man das Prinzip aber erst ein mal verstanden, lassen sich die Struts Mechanismen hervorragend nutzen, um dynamische Meldungsboxen auszugeben. </p>
+</body>
+</html>

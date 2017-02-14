@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dokumentation Widerspruchsdatebank - Benutzerauthentifizierung</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="../../style/Dokumentation.css">
+</head>
+
+<body>
+<div align="center">
+  <h4>Vorgang anzeigen </h4>
+</div>
+<p>Es gibt eine Reihe von M&ouml;glichkeiten, sich einen Vorgang aufzurufen und anzeigen zu lassen. Ein Weg ist &uuml;ber den Men&uuml;punkt '&Uuml;bersicht'. Die &Uuml;bersichtstabellen werden bereits beim rendern mit der dazugeh&ouml;rigen WiderspruchsID versehen, welche beim Aufruf der AnzeigeAction <strong>WiderspruchDetail.do?id=xx</strong> &uuml;bergeben werden. Diese Action ist der Klasse <span class="code">WiderspruchDetail</span> zugeordnet:</p>
+<p class="code"> &lt;/action&gt; <br />
+&lt;action path=&quot;/WiderspruchDetail&quot;<br />
+type=&quot;de.hannit.fsch.wsdb.WiderspruchDetail&quot;<br />
+name=&quot;vorgang&quot;<br />
+scope=&quot;request&quot;<br />
+validate=&quot;false&quot;&gt;<br />
+&lt;forward name=&quot;success&quot; path=&quot;/Widerspruch/AnzeigeVorgang.jsp&quot;/&gt; <br />
+&lt;/action&gt; </p>
+<p>Diese sieht als erstes in der Datenbank nach, wie viele Datens&auml;tze es zu der &uuml;bergebenen ID gibt. 0 Datens&auml;tze oder mehr als 1 Datensatz f&uuml;hren zu einem Fehler. Wird jedoch exakt ein Datensatz gefunden, wird eine Vorgang Bean erzeugt und in die Session gelegt. Die der Bean liefert der Java2SQLMapper mit der Methode getVorgang(int id).</p>
+<p align="center"><img src="../Bilddateien/VorgangWizard3JSP.jpg"></p>
+<p class="bildunterschrift">Die JSP mit den Feldinhalten und den Aktionen </p>
+<p><strong>widerspruch.sachgebiet</strong>:<br />
+  Entspricht der Datenbanktabelle Organisationseinheit</p>
+<p align="center"><img src="../Bilddateien/DBTabelleOrganisationseinhe.jpg"></p>
+<p class="bildunterschrift">Auszug aus der Datenbanktabelle Organisationseinheit </p>
+<p>Zur Zeit ist die Berechtigungspr&uuml;fung an die Organisationseinheit gekn&uuml;pft. Ist der Sachbearbeiter einer bestimmten OE zugeordnet, darf er Vorg&auml;nge f&uuml;r diese und deren Arbeitsgruppen erfassen. Ist der Sachbearbeiter beispielsweise der OE 50.04 zugeordnet, darf er Vorg&auml;nge der OE 50.04 und der untergeordneten Arbeitsgruppen 50.04.01, 50.04.02, 50.04.05 etc. erfassen.</p>
+<p>Alle Rechtepr&uuml;fungen sind zentral im RechteManager hinterlegt. Dieser pr&uuml;ft also zun&auml;chst, ob die OE des Sachbearbeiters mit der im Feld 'Aktenzeichen' angebenen OE &uuml;bereinstimmt, oder es sich dabei um eine Untergruppe der OE des Sachbearbeiters handelt. </p>
+<p>Ist das nicht der Fall, kehrt das Programm zur Ausgangsseite  zur&uuml;ck. Es wird ein Struts Fehlerobjekt hinterlegt, das dem Sachbearbeiter &uuml;ber einen <a href="../007%20-%20Fehlermeldungen.htm#JavaScriptBoxen">Javascript Alert</a> den Hinweis gibt, das er nicht &uuml;ber die erforderliche Berechtigung zur Erfassung des Falles verf&uuml;gt. </p>
+</body>
+</html>

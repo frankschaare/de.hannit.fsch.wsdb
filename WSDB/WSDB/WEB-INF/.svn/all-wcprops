@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF
+END
+struts-logic.tld
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-logic.tld
+END
+struts-template.tld
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-template.tld
+END
+validation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/validation.xml
+END
+displaytag-11.tld
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/displaytag-11.tld
+END
+struts-html.tld
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-html.tld
+END
+struts-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-config.xml
+END
+validator-rules.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/validator-rules.xml
+END
+struts-bean.tld
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-bean.tld
+END
+struts-tiles.tld
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-tiles.tld
+END
+treetag.tld
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/treetag.tld
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/web.xml
+END
+struts-nested.tld
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/struts-nested.tld
+END
+tiles-defs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/tiles-defs.xml
+END

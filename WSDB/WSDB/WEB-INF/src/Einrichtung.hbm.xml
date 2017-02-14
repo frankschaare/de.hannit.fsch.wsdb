@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="de.hannit.fsch.benutzerverwaltung.Einrichtung" table="Einrichtung" dynamic-insert="true" dynamic-update="true" select-before-update="true" optimistic-lock="version">
+		<!-- Primärschlüssel für die Einrichtung -->
+		<id name="id" type="integer" unsaved-value="null">
+			<column name="id" sql-type="integer" not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="name">
+			<column name="name" length="255" not-null="false"/>
+		</property>
+		<!--Eine Einrichtung hat eigentlich eine 1:1 Beziehung zu Ihrer Adresse, Hibernate verlangt aber das many-to-one Tag -->
+		<one-to-one name="adresse" class="de.hannit.fsch.benutzerverwaltung.Adresse"/>
+		<property name="erstelltAm" column="erstelltAm"/>
+	</class>
+	<!-- Mapping für die Adresse -->
+	<class name="de.hannit.fsch.benutzerverwaltung.Adresse" table="Adresse" dynamic-insert="true" dynamic-update="true" select-before-update="true" optimistic-lock="version">
+		<!-- Primärschlüssel für die Adresse -->
+		<id name="id" type="integer" unsaved-value="null">
+			<column name="id" sql-type="integer" not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="strasse">
+			<column name="strasse" not-null="false"/>
+		</property>
+		<property name="hausnummer">
+			<column name="hausnummer" not-null="false"/>
+		</property>
+		<property name="hausnummerZusatz">
+			<column name="zusatz" not-null="false"/>
+		</property>
+		<property name="postleitzahl">
+			<column name="postleitzahl" not-null="false"/>
+		</property>
+		<property name="ort">
+			<column name="ort" not-null="false"/>
+		</property>
+	</class>
+</hibernate-mapping>

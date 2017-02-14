@@ -1,0 +1,26 @@
+<%@ taglib uri="/WEB-INF/displaytag-11.tld" prefix="display" %>
+<%@ page import="org.displaytag.sample.*, java.util.*,
+                 org.displaytag.tags.TableTag"%>
+<% TableTag.checkCommonsLang(); %>
+<head>
+<link rel="stylesheet" href="style/screen.css" type="text/css" media="screen, print" />
+</head>
+<body>
+<h4>Übersicht über alle erfassten Benutzer/innen</h4>
+
+<div align="center">
+<display:table name="sessionScope.Ergebnis" />
+</div>
+
+<p>
+	The simplest possible usage of the table tag is to point the table
+	tag at a java.util.List implementation and do nothing else.  The table tag will iterate through the
+	list and display a column for each property contained in the objects.
+</p>
+
+<p>
+	Typically, the only time that you would want to use the tag in this simple way
+	would be during development as a sanity check.  For production, 
+	you should always define at least a single column.
+</p>
+</body>

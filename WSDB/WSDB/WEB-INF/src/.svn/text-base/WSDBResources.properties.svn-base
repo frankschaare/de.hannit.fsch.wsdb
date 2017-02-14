@@ -1,0 +1,140 @@
+# -- standard errors --
+errors.header=
+errors.prefix=
+errors.suffix=
+errors.footer=
+# -- validator --
+errors.invalid={0} entspricht nicht dem notwendigem Eingabeformat.
+errors.Textfelder={0} muss mit einem Grossbuchstaben beginnen und darf maximal 255 Zeichen lang sein.
+errors.SQLProtection=Dieses Feld darf keines der Sonderzeichen "()' oder ; enthalten.
+errors.maxlength={0} can not be greater than {1} characters.
+errors.minlength={0} Bitte wählen Sie einen Wert aus.
+errors.range={0} is not in the range {1} through {2}.
+errors.required={0} darf nicht leer sein !
+errors.byte={0} must be an byte.
+errors.date=Falsches Datumsformat. Bitte beachten Sie das Format tt.mm.jjjj.
+errors.double={0} must be an double.
+errors.float={0} must be an float.
+errors.integer={0} must be an integer.
+errors.long={0} must be an long.
+errors.short={0} must be an short.
+errors.creditcard={0} is not a valid credit card number.
+errors.email={0} is an invalid e-mail address.
+# -- other --
+errors.cancel=Operation cancelled.
+errors.detail={0}
+errors.general=The process did not complete. Details should follow.
+errors.token=Request could not be completed. Operation is not in sequence.
+# -- WiderspruchErfassen.jsp --
+WiderspruchErfassen.hilfeempfaenger.vorname.label=Vorname
+WiderspruchErfassen.hilfeempfaenger.vorname.title=Geben Sie hier den Vornamen des Hilfeempfängers ein. Das Feld darf leer sein.
+WiderspruchErfassen.hilfeempfaenger.nachname.label=Nachname
+WiderspruchErfassen.hilfeempfaenger.nachname.title=Geben Sie hier den Nachnamen des Hilfeempfängers ein. Das Feld darf nicht leer sein.
+WiderspruchErfassen.hilfeempfaenger.adresse.postleitzahl.label=Postleitzahl
+WiderspruchErfassen.hilfeempfaenger.adresse.postleitzahl.title=Geben Sie hier die Postleizahl des Hilfeempfängers ein. Das Feld darf nicht leer sein und muss aus 5 Zahlen bestehen.
+WiderspruchErfassen.hilfeempfaenger.adresse.ort.label=Wohnort
+WiderspruchErfassen.hilfeempfaenger.adresse.ort.title=Geben Sie hier den Wohnort des Hilfeempfängers ein. Das Feld darf nicht leer sein und muss mit einem Grossbuchstaben beginnen.
+WiderspruchErfassen.hilfeempfaenger.geburtsdatum.label=Geburtsdatum
+WiderspruchErfassen.hilfeempfaenger.geburtsdatum.title=Geben Sie hier das Geburtsdatum des Hilfeempfängers ein. Bitte beachten Sie das Format tt.mm.jjjj. Das Feld darf nicht leer sein.
+WiderspruchErfassen.hilfeempfaenger.sterbedatum.label=Sterbedatum
+WiderspruchErfassen.hilfeempfaenger.sterbedatum.title=Geben Sie hier das Datum des Todes des Hilfeempfängers ein. Bitte beachten Sie das Format tt.mm.jjjj. Beim Verlassen des Feldes werden Felder für weitere Angaben sichtbar.
+WiderspruchErfassen.einrichtung.name.title=Hier wird die ausgewählte Einrichtung angezeigt. Das Feld ist nicht editierbar, es dient nur zu Ihrer Information. Sie können die Einrichtung ändern, wenn Sie die Einrichtungsliste aufrufen und eine andere Einrichtung einfügen. Sie können das Feld zusammen mit dem Feld Sterbedatum mit einem Doppelklick zurücksetzen.
+# -- WiderspruchLöschen.jsp --
+WiderspruchLoeschen.Geladen=fehler = 'ACHTUNG ! Sie beabsichtigen, den folgenden Vorgang zu löschen. Wenn Sie auf den Button [Löschen] klicken, wird der Vorgang endgültig gelöscht ! Klicken Sie auf [Abbrechen], wenn Sie den Vorgang nicht löschen wollen.' ;
+WiderspruchLoeschen.DatensatzVorhanden=fehler = 'Dieser Datensatz wurde bereits gelöscht. Bitte vermeiden Sie es den Button [Zurück] Ihres Browsers zu klicken.' ;
+WiderspruchLoeschen.Erfolgreich=fehler = 'Der Datensatz wurde erfolgreich gelöscht.' ;
+# -- ErfassungEinrichtung.jsp --
+de.hannit.fsch.benutzerverwaltung.Einrichtung.CREATE.Erfolgreich=fehler = 'Die Einrichtung wurde erfolgreich gespeichert. Nachfolgend eine Liste der derzeit erfassten Einrichtungen:' ;
+de.hannit.fsch.benutzerverwaltung.Einrichtung.UPDATE.Erfolgreich=fehler = 'Die Einrichtung wurde erfolgreich aktualisiert. Nachfolgend eine Liste der derzeit erfassten Einrichtungen:' ;
+Einrichtung.DELETE.text.Hinweise= ACHTUNG ! <br><br>Sie beabsichtigen die angezeigte Einrichtung zu löschen. Wenn Sie auf den Button 'löschen' klicken, wird die Einrichtung unwiderruflich gelöscht !
+de.hannit.fsch.benutzerverwaltung.Einrichtung.DELETE.Erfolgreich=fehler = 'Die Einrichtung wurde erfolgreich gelöscht. Nachfolgend eine Liste der derzeit erfassten Einrichtungen:' ;
+de.hannit.fsch.benutzerverwaltung.Einrichtung.DatensatzVorhanden=fehler = 'Es ist bereits eine Einrichtung mit gleicher Bezeichnung vorhanden !' ;
+de.hannit.fsch.benutzerverwaltung.Einrichtung.KeinAdministrator=fehler = 'Nur Administratoren dürfen Einrichtungen bearbeiten !' ;
+Einrichtung.insert.text.Hinweise=Auf dieser Seite k&ouml;nnen Sie eine neue Einrichtung erfassen. 
+ErfassungEinrichtung.name.label=Name der Einrichtung
+ErfassungEinrichtung.name.title=Geben Sie hier den Namen der Einrichtung ein. Das Feld darf nicht leer sein.
+ErfassungEinrichtung.adresse.postleitzahl.label=Postleitzahl der Einrichtung
+ErfassungEinrichtung.adresse.postleitzahl.title=Geben Sie hier die Postleizahl der Einrichtung ein. Das Feld darf nicht leer sein und muss aus 5 Zahlen bestehen.
+ErfassungEinrichtung.adresse.ort.label=Ort der Einrichtung
+ErfassungEinrichtung.adresse.ort.title=Geben Sie hier den Ort der Einrichtung ein. Das Feld darf nicht leer sein.
+# -- ErfassungWiderspruch --
+ErfassungWiderspruch.DatensatzVorhanden=fehler = 'Es ist bereits ein Vorgang mit gleichem Aktenzeichen vorhanden. Sie können keinen weiteren Vorgang mit gleichem Aktenzeichen erfassen !';
+ErfassungWiderspruch.KeineBerechtigung=fehler = 'Sie sind nicht berechtigt zu diesem Sachgebiet Vorgänge zu erfassen';
+# -- Erfassung und Bearbeiten Thema --
+Thema.error.Thema=Das Feld Gegenstand des Verfahrens
+Thema.insert.text.Hinweise=Auf dieser Seite k&ouml;nnen Sie ein neues Thema erfassen. Mit der Zuordnung des Themas zu einer Organisationseinheit steuern Sie automatisch die Sichtbarkeit des Themas. Ordnen Sie das Thema dem gesamten Fachbereich zu, ist es automatisch f&uuml;r alle Teams des Fachbereiches sichtbar. Ordnen Sie es dagegegen einem Team oder einem Fachbereich zu, ist das Thema nur f&uuml;r dieses Team sichtbar.<br><br>Thema ist übrigens gleichbedeutend mit 'Gegenstand des Verfahrens'. Dieser Begriff ist nur sehr lang und dort, wo der Platz begrenzt ist, z.b. im Navigationsbaum, wird stattdessen der Begriff 'Thema' verwendet. 
+Thema.update.text.Hinweise=Auf dieser Seite k&ouml;nnen Sie ein vorhandenes Thema ändern. Mit der Zuordnung des Themas zu einer Organisationseinheit steuern Sie automatisch die Sichtbarkeit des Themas. Ordnen Sie das Thema dem gesamten Fachbereich zu, ist es automatisch f&uuml;r alle Teams des Fachbereiches sichtbar. Ordnen Sie es dagegegen einem Team oder einem Fachbereich zu, ist das Thema nur f&uuml;r dieses Team sichtbar.<br><br>Thema ist übrigens gleichbedeutend mit 'Gegenstand des Verfahrens'. Dieser Begriff ist nur sehr lang und dort, wo der Platz begrenzt ist, z.b. im Navigationsbaum, wird stattdessen der Begriff 'Thema' verwendet. 
+Thema.DELETE.text.Hinweise= ACHTUNG ! <br><br>Sie beabsichtigen das angezeigte Thema zu löschen. Wenn Sie auf den Button 'löschen' klicken, wird das Thema unwiderruflich gelöscht.
+de.hannit.fsch.wsdb.Thema.CREATE.Erfolgreich=fehler = 'Das Thema wurde erfolgreich gespeichert. Nachfolgend eine Liste der derzeit erfassten Themen:' ;
+de.hannit.fsch.wsdb.Thema.UPDATE.Erfolgreich=fehler = ' Datensatz wurde aktualisiert. Nachfolgend eine Liste der derzeit erfassten Themen:' ;
+de.hannit.fsch.wsdb.Thema.DELETE.Erfolgreich=fehler = 'Das Thema wurde erfolgreich gelöscht. Nachfolgend eine Liste der derzeit erfassten Themen:' ;
+de.hannit.fsch.wsdb.Thema.DatensatzVorhanden=fehler = 'Es ist bereits ein Thema mit gleicher Bezeichnung vorhanden !' ;
+de.hannit.fsch.wsdb.Thema.KeinAdministrator=fehler = 'Nur Administratoren dürfen Themen bearbeiten !' ;
+# -- Erfassung und Bearbeiten Ereignis --
+Ereignis.error.Name=Das Feld Name 
+Ereignis.error.OE=Das Auswahlfeld Organisationseinheit
+Ereignis.label.Name=Name des Ereignisses:
+Ereignis.insert.textTitle.Name=Geben Sie hier eine sinnvolle Bezeichnung für das Ereignis ein. Das Feld darf nicht leer sein.
+Ereignis.update.textTitle.Name=Ändern Sie ggf. die Bezeichnung des Ereignisses. Das Feld darf nicht leer sein.
+Ereignis.label.OE=Organisationseinheit:
+Ereignis.insert.textTitle.OE=Wählen Sie hier eine gültige Organisations aus. Das Feld darf nicht leer sein.
+Ereignis.insert.text.Hinweise=Auf dieser Seite k&ouml;nnen Sie ein neues Ereignis erfassen. Mit der Zuordnung des Ereignisses zu einer Organisationseinheit steuern Sie automatisch die Sichtbarkeit des Ereignisses. Ordnen Sie das Ereignis dem gesamten Fachbereich zu, ist es automatisch f&uuml;r alle Teams des Fachbereiches sichtbar. Ordnen Sie es dagegegen einem Team oder einem Fachbereich zu, ist das Ereignis nur f&uuml;r dieses Team sichtbar.<br><br>Sie können ausserdem festlegen, ob das Ereignis ein optionales Zusatzfeld und ein Kommentarfeld enthält. Ein wiederkehrendes Ereignis kann mehrfach ein den Verfahrensverlauf gespeichert werden. Ist das Ereignis dagegegen nicht wiederkehrend, also einmalig, kann es nur einmal in den Verfahrensverlauf geschrieben werden. 
+Ereignis.update.text.Hinweise=Auf dieser Seite k&ouml;nnen Sie ein bereits erfasstes Ereignis bearbeiten. Dies ist z.b. dann sehr sinnvoll, wenn Sie die Sichtbarkeit des Ereignisses umstellen wollen. Mit der Zuordnung des Ereignisses zu einer Organisationseinheit steuern Sie automatisch die Sichtbarkeit des Ereignisses. Ordnen Sie das Ereignis dem gesamten Fachbereich zu, ist es automatisch f&uuml;r alle Teams des Fachbereiches sichtbar. Ordnen Sie es dagegegen einem Team oder einem Fachbereich zu, ist das Ereignis nur f&uuml;r dieses Team sichtbar.<br><br>Sie können ausserdem festlegen, ob das Ereignis ein optionales Zusatzfeld und ein Kommentarfeld enthält. Ein wiederkehrendes Ereignis kann mehrfach ein den Verfahrensverlauf gespeichert werden. Ist das Ereignis dagegegen nicht wiederkehrend, also einmalig, kann es nur einmal in den Verfahrensverlauf geschrieben werden. 
+Verfahrensverlauf.update.text.Hinweise=Auf dieser Seite k&ouml;nnen Sie ein im Verfahrensverlauf erfasstes Ereignis bearbeiten. Benuzten Sie das Kalenderelement, um das Datum zu ändern.<br><br>Achten Sie bitte darauf, keine unlogischen Daten zu erfassen. Bestimmte Ereignisse (z.b. Eingang) sind fix und können nur bezüglich Datum und Kommentar verändert werden. 
+ErfassungEreignis.DatensatzVorhanden=fehler ='Es ist bereits ein Ereignis mit gleichem Namen vorhanden !';
+ErfassungEreignis.Erfolgreich=fehler = 'Das Ereignis wurde erfolgreich gespeichert.';
+UpdateEreignis.Erfolgreich=fehler = 'Das Ereignis wurde erfolgreich aktualisiert.' ;
+# -- ErfassungBenutzer --
+ErfassungBenutzer.SpeichernErfolgreich=fehler = 'Der Benutzer wurde erfolgreich gespeichert. Sie können nun noch weitere Rechte erfassen.' ;
+ErfassungBenutzer.DatensatzVorhanden=fehler = 'Es ist bereits ein Benutzer mit gleichem Benutzernamen vorhanden !' ;
+ErfassungBenutzer.SQLFehler=fehler = 'Beim Versuch die Daten zu ändern ist leider ein Fehler aufgetreten. Bitte überprüfen Sie die Daten.' ;
+# -- BearbeitungRechte --
+BearbeitungRechte.DatensatzVorhanden=fehler = 'Es ist bereits eine entsprechende Berechtigung vorhanden !' ;
+BearbeitungRechte.LoeschenErfolgreich=fehler = 'Die ausgewählte Berechtigung wurde erfolgreich gelöscht.' ;
+BearbeitungRechte.LoeschenFehler=fehler = 'Es wurde keine gültige Berechtigung zum löschen gefunden !' ;
+BearbeitungRechte.LoeschenMehrereErfolgreich=fehler = 'Die ausgewählten Berechtigungen wurden erfolgreich gelöscht.' ;
+BearbeitungRechte.SpeichernErfolgreich=fehler = 'Die Berechtigung wurde erfolgreich gespeichert.' ;
+BearbeitungRechte.KeinAdministrator=fehler = 'Nur Administratoren dürfen Benutzerrechte ändern !' ;
+# -- LoeschenBenutzer --
+BenutzerLoeschen.Geladen=fehler = 'ACHTUNG ! Sie beabsichtigen, den folgenden Benutzer zu löschen. Wenn Sie auf den Button [Löschen] klicken, wird der Vorgang endgültig gelöscht ! Klicken Sie auf [Abbrechen], wenn Sie den Benutzer nicht löschen wollen.' ;
+BenutzerLoeschen.Erfolgreich=fehler = 'Der Benutzer wurde erfolgreich gelöscht.' ;
+# -- Formularbeschriftungen --
+label.Anrede=Anrede:
+label.Anrede.title=Wählen Sie hier eine passende Anrede aus:
+label.Vorname=Vorname:
+label.Vorname.title=Bearbeiten Sie hier den Vornamen:
+label.Nachname=Nachname:
+label.Nachname.title=Bearbeiten Sie hier den Nachnamen:
+label.Username=Benutzername
+label.Username.title=Geben Sie hier einen eindeutigen Benutzernamen ein. Darf nur einmalig vorkommen.:
+label.Raum=Raum:
+label.Raum.title=Bearbeiten Sie hier den Raum:
+label.Durchwahl=Durchwahl:
+label.Durchwahl.title=Bearbeiten Sie hier die Durchwahl:
+label.Geburtsdatum=Geburtsdatum:
+label.Geburtsdatum.title=Geben Sie hier das entsprechende Datum ein. Beachten Sie unbedingt das Datumsformat: tt.mm.yyyy !
+label.Wohnort=Wohnort:
+label.Wohnort.title=Wählen Sie hier den Wohnort aus:
+label.GA=gewöhnlicher Aufenthalt:
+label.GA.title=Wählen Sie hier den gewöhnlichen Aufenthalt aus:
+label.Sachgebiet=Sachgebiet
+label.Sachgebiet.title=Geben Sie hier das Sachgebiet ein:
+label.AZ=Aktenzeichen
+label.AZ.title=Geben Sie hier das Aktenzeichen des Vorganges ein:
+label.Verfahrensart=Verfahrensart
+label.Verfahrensart.title=Geben Sie hier die Art des Verfahrens ein:
+label.GegenstandDesVerfahrens=Gegenstand des Verfahrens
+label.GegenstandDesVerfahrens.title=Geben Sie hier den Gegenstand des Verfahrens ein:
+label.Rechtsgebiet=Rechtsgebiet
+label.Rechtsgebiet.title=Geben Sie hier das Rechtsgebiet ein:
+label.Eingangsdatum=Eingangsdatum:
+label.Angaben=Angaben zum Widerspruch:
+label.AZ.title=Geben Sie hier die Angaben zum Vorgang ein:
+label.Sterbedatum.title=Geben Sie hier das entsprechende Datum ein. Wenn Sie ein Sterbedatum eingeben, muss auch eine Einrichtung gewählt werden. Beachten Sie unbedingt das Datumsformat: tt.mm.yyyy !
+# -- welcome --
+welcome.title=Widerspruchsdatenbank &copy; 2003 Hannoversche Informationstechnologien
+welcome.heading=Willkommen bei der Widerspruchsdatenbank!
+welcome.username=Dein Name
+welcome.message=To get started on your own application, copy the struts-blank.war to a new WAR file using the name for your application. Place it in your container's "webapp" folder (or equivalent), and let your container auto-deploy the application. Edit the skeleton configuration files as needed, restart your container, and you are on your way! (You can find the application.properties file with this message in the /WEB-INF/src/java/resources folder.)
+# -- Benutzer erfassen --
+benutzerErfassung.ueberschrift=Neuen Benutzer erfassen

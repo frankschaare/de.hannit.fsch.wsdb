@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dokumentation Widerspruchsdatebank - Benutzerauthentifizierung</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="../../style/Dokumentation.css">
+</head>
+
+<body>
+<div align="center">
+  <h4>AnzeigeVorgang.jsp</h4>
+</div>
+<p>Auf dieser Seite werden die Stammdaten des Falles angezeigt und der Verfahrensverlauf ver&auml;ndert:</p>
+<p align="center"><img src="../Bilddateien/AnzeigeVorgang.jpg"></p>
+<p class="bildunterschrift">Die JSP mit den Feldinhalten und den Aktionen </p>
+<p>Ein grosser Unterschied zu allen anderen JSP´s der Anwendung ist, dass der [speichern &gt;&gt;] Button nicht direkt den Submit des Formulars ausl&ouml;st, sondern erst das JavaScript 'checkEreignis()' aufruft:</p>
+<p class="code">function checkEreignis()<br />
+  {<br />
+  var wert = document.getElementById(&quot;selectEreignis&quot;).value;<br />
+if (wert.length == 0)<br />
+{<br />
+alert(&quot;Sie k&ouml;nnen nur speichern, wenn Sie ein g&uuml;ltiges Ereignis ausw&auml;hlen !&quot;);<br />
+}<br />
+else<br />
+{<br />
+document.forms[0].submit();<br />
+}</p>
+<p class="bildunterschrift">Das JavaScript checkEreignis()</p>
+<p>Das Select '<span class="code">selectEreignis</span>' ist beim Laden leer (Wert = ''). Klickt der Benutzer auf den Button [speichern &gt;&gt;], wird zuerst gepr&uuml;ft, ob ein Ereignis ausgew&auml;hlt wurde. Erst dann wird die Action '<strong>SpeichernEreignis</strong>' aufgerufen: </p>
+<p class="code"> &lt;action path=&quot;/SpeichernEreignis&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type=&quot;de.hannit.fsch.wsdb.SpeichernEreignis&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name=&quot;ereignis&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scope=&quot;request&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validate=&quot;false&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input=&quot;/Vorgang/AnzeigeVorgang.jsp&quot;&gt;<br />
+&lt;forward name=&quot;success&quot; path=&quot;/Vorgang/AnzeigeVorgang.jsp&quot;/&gt; <br />
+&lt;/action&gt;  </p>
+
+<p class="bildunterschrift">Das zugehörige Mapping aus der Struts-config.xml: </p>
+<p>Das &auml;ndern des Verfahrensverlaufes ist irgendwas zwischen genial und krude geworden; Grunds&auml;tzlich wird der Verfahrens bereits beim erstmaligem Speichern eines Vorganges geschrieben. Direkt im Anschluss daran wird immer ein erstes Ereignis eingef&uuml;gt, der Eingang des Vorganges mit dem Eingangsdatum. </p>
+<p>Es gibt einige feste Ereignisse, im wesentlich k&ouml;nnen die Anwender aber Ihre eigenen <a href="#">Ereignisse definieren</a>. Alle Ereignisse werden in die Datenbanktabelle <strong>'Ereignis'</strong> geschrieben: </p>
+<p align="center"><img src="../Bilddateien/DBTabelleEreignis.jpg"></p>
+<p class="bildunterschrift">Die Datenbanktabelle Ereignis im Beispiel </p>
+<p>Bereits beim erstellen einer neuen Session wird vom SessionListener eine neue FormularBean() gebaut, welche u.a. auch diese Tabelle mit allen Ereignissen ausliest und als Collection speichert. Die JSP iteriert nun &uuml;ber diese Collection und rendert f&uuml;r jedes gefundene Ereignis ein DIV mit den enthaltenen Formularelementen:</p>
+<p align="center"><img src="../Bilddateien/RendernEreignisDIVs.jpg"></p>
+<p class="bildunterschrift">Die Schleife, welche die verschiedenen DIVs aus den Ereignissen der Formularbean rendert.</p>
+<p>Die JSP beinhaltet also eine Reihe von zunächst unsichtbaren DIVs. W&auml;hlt der Benutzer ein g&uuml;ltiges Ereignis aus, wird es mitthilfe des Javascripts 'showEreignis(selectEreignis.value)' angezeigt:</p>
+<p class="code">function showEreignis(EreignisID)<br />
+  {<br />
+// Schleife durchl&auml;uft alle DIVs<br />
+for(var i = 0; i &lt; document.getElementsByTagName(&quot;div&quot;).length; i++)<br />
+{<br />
+// DIV wird benannt, z.b. 'div1'<br />
+var DivElement = document.getElementsByTagName(&quot;div&quot;)[i];<br />
+// Die id bildet den eindeutigen Bezeichner des DIVs<br />
+// var DivID = DivElement.id;<br />
+<br />
+if(DivElement.id.indexOf(&quot;EreignisDiv&quot;) != -1)<br />
+{<br />
+if(DivElement.id==(&quot;EreignisDiv&quot;+EreignisID))<br />
+{<br />
+DivElement.style.display=&quot;inline&quot;;<br />
+}<br />
+else<br />
+{<br />
+DivElement.style.display=&quot;none&quot;;<br />
+}<br />
+}<br />
+}<br />
+}</p>
+<p>Da sich in der JSP eine Menge DIVs tummeln, hat die Logic-Schleife die DIVs gleich so benannt, dass alle mit der Bezeichnung 'EreignisDiv' beginnen. Somit lassen sich die Ereignis-DIVs leicht von den anderen unterscheiden.</p>
+<p>Dummerweise findet Struts diese unwerwartete Anh&auml;ufung unsichtbarer DIVs mit gleichlautenden Properties &uuml;berhaupt nicht lustig. Es war daher notwendig, die eigentlichen Werte &uuml;ber versteckte Formularfelder zu &uuml;bergeben. Aus diesem Grund werden die Textelemente 'Datum' und 'Kommentar' auch gleich mit weiteren Javascripts (setDatum(Wert) und setKommentar(Wert)) gerendert. Damit werden die unsichtbaren Felder 'Ereignis.Datum' und 'Ereignis.Kommentar' bef&uuml;llt, welche dann letztlich von der FormBean &uuml;bernommen werden:</p>
+<p align="center"><img src="../Bilddateien/HiddenPropertiesDatumKommen.jpg"></p>
+<p class="bildunterschrift">Die versteckten Formularfelder speichern die zu transportierenden Daten.</p>
+</body>
+</html>

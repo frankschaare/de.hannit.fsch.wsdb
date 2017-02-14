@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties
+END
+MediaTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/MediaTypeEnum.java
+END
+DisplayPropertiesLoaderServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/DisplayPropertiesLoaderServlet.java
+END
+TableTag.properties
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/TableTag.properties
+END
+DisplayPropertiesLoaderServlet.class
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/DisplayPropertiesLoaderServlet.class
+END
+MediaTypeEnum.class
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/MediaTypeEnum.class
+END
+SortOrderEnum.class
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/SortOrderEnum.class
+END
+TableProperties.class
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/TableProperties.class
+END
+SortOrderEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/SortOrderEnum.java
+END
+TableProperties.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/WEB-INF/src/org/displaytag/properties/TableProperties.java
+END

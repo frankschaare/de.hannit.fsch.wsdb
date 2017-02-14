@@ -1,0 +1,90 @@
+<%-- Author: Frank.Schaare@HannIT.de, 25.02.2005 --%>
+<%@ page 	language="java" 
+			session="true"
+			import="java.util.*"
+			info="Wird bei einer CRUD Exception aufgerufen."
+			isErrorPage="true"
+			contentType="text/html; charset=ISO-8859-15"
+
+%>
+
+<%
+ByteArrayOutputStream theStream = new ByteArrayOutputStream();
+if(exception != null) exception.printStackTrace(new PrintWriter(theStream,true));
+%>
+<!--
+  Der Grund des Fehlers ist "<%=exception.getMessage() %>".
+  Der Fehler trat an folgende Stelle auf:
+  "<%=theStream.toString()%>"
+  
+  Action Errors:
+  <html:errors/>
+-->
+<html>
+<head>
+
+<title>Fehler bei einer Datenbankoperation</title>
+<script type="text/javascript">
+<!--
+function init() 
+{
+var navFrame = parent.NavigationFrame;
+if (navFrame != null){parent.NavigationFrame.window.location.reload();}
+}
+// -->
+</script>
+
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/style/Standard.css">
+
+
+</head>
+
+<body onLoad="init()">
+
+  
+<table width="90%" border="0">
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="1%">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="1%">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td width="1%">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3"><div align="center"><strong>Leider ist ein Fehler aufgetreten ! </strong></div></td>
+  </tr>
+  <tr> 
+    <td width="50%">&nbsp;</td>
+    <td width="1%">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="50%"><div align="right"></div></td>
+    <td width="1%">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3"> <div align="left">
+      <p>Bei einem Datenbankzugriff ist ein Fehler aufgetreten. Es besteht daher eine grosse Wahrscheinlichkeit, dass die letzte von Ihnen durchgef&uuml;hrte Aktion nicht wie gew&uuml;nscht durchgef&uuml;hrt wurden. Bitte &uuml;berpr&uuml;fen Sie daher die Daten gr&uuml;ndlich. </p>
+      <p>Daf&uuml;r kann es folgende Ursachen geben: </p>
+      <ul>
+        <li><strong>Die Datenbank steht momentan nicht zur Verf&uuml;gung</strong>: </li>
+        </ul>
+    </div></td>
+  </tr>
+  <tr> 
+    <td colspan="3"> <div align="center"></div></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

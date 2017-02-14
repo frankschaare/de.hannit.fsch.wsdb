@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+    <tlibversion>1.1.0</tlibversion>
+    <jspversion>1.2</jspversion>
+    <shortname>Tree Tag</shortname>
+    <uri>urn:www.jenkov.com/projects/treetag</uri>
+
+    <!--
+    <displayname>Html Tree Tag</displayname>
+
+    <description>
+    This little tag library can generate html trees from an com.jenkov.tags.tree.itf.ITreeNode tree.
+    It can expand/collapse nodes in the tree, and manage links on the nodes.
+    </description>
+    -->
+    <tag>
+        <name>tree</name>
+        <tagclass>com.jenkov.tags.tree.impl.TreeTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>tree</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>node</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>expandParam</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>collapseParam</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>includeRootNode</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+    <tag>
+        <name>nodeId</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeIdTag</tagclass>
+        <bodycontent>empty</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>nodeName</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeNameTag</tagclass>
+        <bodycontent>empty</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>nodeType</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeTypeTag</tagclass>
+        <bodycontent>empty</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>nodeIndent</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeIndentTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>indentationType</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>nodeIndentVerticalLine</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeIndentVerticalLineTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>indentationType</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>nodeIndentBlankSpace</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeIndentBlankSpaceTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>indentationType</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>nodeExpand</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeExpandTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>target</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>nodeCollapse</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeCollapseTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>target</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+    <tag>
+        <name>nodeMatch</name>
+        <tagclass>com.jenkov.tags.tree.impl.NodeMatchTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>node</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>type</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>expanded</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>hasChildren</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>isFirstChild</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>isLastChild</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

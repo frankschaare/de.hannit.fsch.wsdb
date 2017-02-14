@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/repos/stabsstelle/!svn/ver/609/trunk/WSDB
+END
+ListeEreignis.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeEreignis.jsp
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/.cvsignore
+END
+.tomcatplugin
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/.tomcatplugin
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/.project
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/index.jsp
+END
+test.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/test.jsp
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/.classpath
+END
+ListeKlagen.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeKlagen.jsp
+END
+UebersichtBenutzer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/UebersichtBenutzer.jsp
+END
+ListeEinrichtung.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeEinrichtung.jsp
+END
+ListeWiderspruch.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeWiderspruch.jsp
+END
+ListeThema.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeThema.jsp
+END
+ListeBearbeitungWiderspruch.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeBearbeitungWiderspruch.jsp
+END
+ListeBearbeitungBenutzer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeBearbeitungBenutzer.jsp
+END
+ListeBenutzer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/stabsstelle/!svn/ver/610/trunk/WSDB/ListeBenutzer.jsp
+END

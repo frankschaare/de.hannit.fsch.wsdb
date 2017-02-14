@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+<form-validation>
+	<!--
+     This is a blank Validator form file with a commented examples.
+-->
+	<global>
+        <constant>
+            <constant-name>PLZ</constant-name>
+            <constant-value>^\d{5}$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>Textfeld</constant-name>
+            <constant-value>^[A-Z].{0,254}$</constant-value>
+        </constant>
+        <constant>
+            <constant-name>SQLProtection</constant-name>
+            <constant-value>^[^"'();]*$</constant-value>
+        </constant>        
+        <constant>
+            <constant-name>Datumsformat</constant-name>
+            <constant-value>dd.MM.yyyy</constant-value>
+        </constant>
+        <constant>
+            <constant-name>minlengthSelect</constant-name>
+            <constant-value>1</constant-value>
+        </constant>        
+	</global>
+	<formset>
+		<!-- Feldvalidierung auf der Seite BenutzerDatenErfassen -->
+		<form name="sb">
+			<field property="username" depends="required">
+				<arg0 key="label.Username"/>
+			</field>
+			<field property="nachname" depends="required">
+				<arg0 key="label.Nachname"/>
+			</field>
+			<field property="organisationseinheitID" depends="required">
+				<arg0 key="label.Sachgebiet"/>
+			</field>			
+			<!--field
+            property="password"
+            depends="required,mask">
+            <arg0 key="logonForm.password"/>
+            <var>
+                <var-name>mask</var-name>
+                <var-value>^[0-9a-zA-Z]*$</var-value>
+            </var>
+         </field-->
+		</form>
+		<form name="vStep1">
+			<field property="hilfeempfaenger.vorname" depends="mask">
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+		            		<var-name>mask</var-name>
+		                	<var-value>${SQLProtection}</var-value>
+	        		</var>	
+			</field>		
+			<field property="hilfeempfaenger.nachname" depends="required,mask">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.nachname.label"/>
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+		            		<var-name>mask</var-name>
+		                	<var-value>${SQLProtection}</var-value>
+	        		</var>					
+			</field>
+			<field property="hilfeempfaenger.adresse.postleitzahl" depends="mask">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.adresse.postleitzahl.label"/>
+	            <var>
+	                <var-name>mask</var-name>
+	                <var-value>${PLZ}</var-value>
+	            </var>				
+			</field>						
+			<field property="hilfeempfaenger.adresse.ort" depends="required,mask">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.adresse.ort.label"/>
+				<msg name="mask" key="errors.SQLProtection"/>
+			<var>
+		            	<var-name>mask</var-name>
+		                <var-value>${SQLProtection}</var-value>
+	        	</var>	
+       		</field>			
+			<field property="hilfeempfaenger.geburtsdatum" depends="date">
+				<arg0 key="label.Geburtsdatum"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${Datumsformat}</var-value>					
+				</var>
+			</field>
+			<field property="hilfeempfaenger.sterbedatum" depends="date">
+				<arg0 key="label.Geburtsdatum"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>${Datumsformat}</var-value>					
+				</var>
+			</field>			
+		</form>	
+
+		<!-- Seite VorgangWizard2.jsp -->
+		<form name="vStep2">
+			<field property="vertreter.vorname" depends="mask">
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+		            		<var-name>mask</var-name>
+		                	<var-value>${SQLProtection}</var-value>
+	        		</var>	
+			</field>		
+			<field property="vertreter.nachname" depends="mask">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.nachname.label"/>
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+		            		<var-name>mask</var-name>
+		                	<var-value>${SQLProtection}</var-value>
+	        		</var>					
+			</field>
+			<field property="vertreter.adresse.postleitzahl" depends="mask">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.adresse.postleitzahl.label"/>
+				<msg name="mask" key="errors.SQLProtection"/>
+			        <var>
+			                <var-name>mask</var-name>
+			                <var-value>${SQLProtection}</var-value>
+			        </var>				
+			</field>						
+			<field property="vertreter.adresse.ort" depends="mask">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.adresse.postleitzahl.label"/>
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+			            	<var-name>mask</var-name>
+			                <var-value>${SQLProtection}</var-value>
+		        	</var>	
+       			</field>			
+			
+		</form>	
+		
+		<!-- Seite VorgangWizard3.jsp -->				
+		<form name="vStep3">
+	            <field property="widerspruch.sachgebiet" depends="required">
+			<arg0 key="label.Sachgebiet"/>
+	            </field>	
+		    <field property="widerspruch.aktenzeichen" depends="required,mask">
+				<arg0 key="label.AZ"/>
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+		            		<var-name>mask</var-name>
+		                	<var-value>${SQLProtection}</var-value>
+	        		</var>					
+		    </field>
+		    <field property="widerspruch.angaben" depends="mask">
+				<msg name="mask" key="errors.SQLProtection"/>
+				<var>
+		            		<var-name>mask</var-name>
+		                	<var-value>${SQLProtection}</var-value>
+	        		</var>					
+		    </field>		    	            		
+	            <field property="widerspruch.verfahrensartID" depends="required">
+			<arg0 key="label.Verfahrensart"/>
+	            </field>	
+	            <field property="widerspruch.gegenstandDesVerfahrensID" depends="required">
+			<arg0 key="label.GegenstandDesVerfahrens"/>
+	            </field>	            
+	            <field property="widerspruch.rechtsgebietID" depends="required">
+			<arg0 key="label.Rechtsgebiet"/>
+	            </field>	            
+		</form>
+		
+		<!-- Seite VorgangWizard4.jsp, die Anzeigeseite -->				
+		<form name="vStep4">
+			<field property="hilfeempfaenger.nachname" depends="required">
+				<arg0 key="WiderspruchErfassen.hilfeempfaenger.nachname.label"/>
+			</field>
+			<field property="hilfeempfaenger.adresse.ort" depends="required,mask">
+				<msg name="mask" key="errors.Textfelder"/>
+				<arg0 key="label.Wohnort"/>
+				<var>
+	            	<var-name>mask</var-name>
+	                <var-value>${Textfeld}</var-value>
+	            </var>	
+       		</field>
+       		<field property="widerspruch.aktenzeichen" depends="required">
+				<arg0 key="label.AZ"/>
+			</field>	            		
+	        <field property="widerspruch.verfahrensartID" depends="required">
+				<arg0 key="label.Verfahrensart"/>
+	        </field>	
+	        <field property="widerspruch.gegenstandDesVerfahrensID" depends="required">
+				<arg0 key="label.GegenstandDesVerfahrens"/>
+	        </field>	            
+	        <field property="widerspruch.rechtsgebietID" depends="required">
+				<arg0 key="label.Rechtsgebiet"/>
+	         </field>				
+		</form>		
+
+		<!-- Eine neue Einrichtung erfassen -->				
+		<form name="einrichtung">
+			<field property="name" depends="required">
+				<arg0 key="ErfassungEinrichtung.name.label"/>
+			</field>
+			<field property="adresse.postleitzahl" depends="required,mask">
+				<arg0 key="ErfassungEinrichtung.adresse.postleitzahl.label"/>
+	            <var>
+	                <var-name>mask</var-name>
+	                <var-value>${PLZ}</var-value>
+	            </var>				
+			</field>
+			<field property="adresse.ort" depends="required">
+				<arg0 key="ErfassungEinrichtung.adresse.ort.label"/>
+			</field>			
+		</form>
+				
+		<!-- Ein neues Ereignis erfassen -->				
+		<form name="ereignis">
+			<field property="name" depends="required">
+				<arg0 key="Ereignis.error.Name"/>
+			</field>
+			<field property="organisationseinheitID" depends="required">
+				<arg0 key="Ereignis.error.OE"/>
+			</field>			
+		</form>
+		
+		<!-- Ein neues Thema erfassen -->				
+		<form name="thema">
+			<field property="thema" depends="required">
+				<arg0 key="Thema.error.Thema"/>
+			</field>
+			<field property="team" depends="required">
+				<arg0 key="Ereignis.error.OE"/>
+			</field>			
+		</form>		
+	</formset>
+	<!-- An example formset for another locale
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+   </formset>
+   -->
+</form-validation>

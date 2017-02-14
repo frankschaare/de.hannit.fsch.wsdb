@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+
+<!-- ==================================== Data Source Configuration -->
+
+<!--
+ <data-sources>
+   <data-source>
+     <set-property
+        property="autoCommit"
+        value="false"/>
+     <set-property
+        property="description"
+        value="Example Data Source Configuration"/>
+     <set-property
+        property="driverClass"
+        value="org.postgresql.Driver"/>
+     <set-property
+        property="maxCount"
+        value="4"/>
+     <set-property
+        property="minCount"
+        value="2"/>
+     <set-property
+        property="password"
+        value="mypassword"/>
+     <set-property
+        property="url"
+        value="jdbc:postgresql://localhost/mydatabase"/>
+     <set-property
+        property="user"
+        value="myusername"/>
+   </data-source>
+ </data-sources>
+
+-->
+<!-- ======================================== Form Bean Definitions -->
+    <form-beans>
+
+    <!-- Sachbearbeiter Formbean -->
+	<form-bean name="sb" type="de.hannit.fsch.benutzerverwaltung.Sachbearbeiter" />
+
+	<form-bean name="vStep1" type="de.hannit.fsch.wsdb.Vorgang" />
+	<form-bean name="vStep2" type="de.hannit.fsch.wsdb.Vorgang" />
+	<form-bean name="vStep3" type="de.hannit.fsch.wsdb.Vorgang" />	
+	<form-bean name="vStep4" type="de.hannit.fsch.wsdb.Vorgang" />		
+	<form-bean name="vorgang" type="de.hannit.fsch.wsdb.Vorgang" />	
+	<form-bean name="sachgebiet" type="de.hannit.fsch.benutzerverwaltung.Sachgebiet" />	
+		
+	<form-bean name="thema" type="de.hannit.fsch.wsdb.Thema" />    
+    <!-- Schnellsuche Formbean -->
+	<form-bean name="qsForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
+		<form-property name="tabelle" type="java.lang.String"/>
+		<form-property name="spalte" type="java.lang.String"/>		
+		<form-property name="wert" type="java.lang.String"/>			
+		<form-property name="suchbegriff" type="java.lang.String"/>		
+	</form-bean>
+    <!-- Verwaltungs Formbean -->
+	<form-bean name="vwForm" dynamic="true" type="org.apache.struts.validator.DynaValidatorForm">
+		<form-property name="hilfstabelle" type="java.lang.String"/>
+	</form-bean>
+    						<!-- IST DAS RICHTIG ??? -->
+	<form-bean name="einrichtung" type="de.hannit.fsch.benutzerverwaltung.Einrichtung" />	
+	<form-bean name="ereignis" type="de.hannit.fsch.wsdb.Ereignis" />	
+    </form-beans>
+
+
+
+
+
+<!-- ================================= Global Exception Definitions -->
+
+
+
+    <global-exceptions>
+
+        <!-- sample exception handler
+
+        <exception
+
+            key="expired.password"
+
+            type="app.ExpiredPasswordException"
+
+            path="/changePassword.jsp"/>
+
+        end sample -->
+
+    </global-exceptions>
+
+
+
+
+
+<!-- =================================== Global Forward Definitions -->
+
+<global-forwards>
+	<!-- Weiterleitung nach erfolgreicher Abmeldung -->
+	<forward name="AbmeldungErfolgreich" path="/pages/Logout.jsp"/>
+	<forward name="ListeEinrichtung" path="/ListeEinrichtung.jsp"/>	
+	<forward name="ListeWiderspruch" path="/pages/ListeWiderspruch.jsp"/>		
+	<forward name="BenutzerBearbeitung" path="/pages/BenutzerBearbeitung.jsp"/>	
+	<!-- Fehlerseite, wenn ein Token nicht gesetzt wurde, d.h eine Action 'unsachgemäss' aufgerufen wurde -->
+	<forward name="IllegalerAufruf" path="/pages/IllegalerAufruf.jsp"/>	
+	<!-- Allgemeine Fehlerseite, wenn keine Berechtigung vorliegt. -->
+	<forward name="KeineBerechtigung" path="/pages/KeineBerechtigung.jsp"/>		
+	<!-- Fehlerseite, wenn eine CRUD Action fehlerhaft aufgerufen wird -->
+	<forward name="CRUDFehler" path="/pages/CRUDFehler.jsp"/>			
+	<forward name="SessionTimeout" path="/pages/SessionTimeout.jsp"/>		
+</global-forwards>
+
+<!-- =================================== Action Mapping Definitions -->
+
+<action-mappings>
+	<!-- Forward zur Startseite -->
+    	<action	path="/home"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/pages/home.jsp"/>
+	<!-- Forward zur Wizard2 -->
+    	<action	path="/wizard2"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Vorgang/VorgangWizard2.jsp"/>
+	<!-- Forward zur Wizard3 -->
+    	<action	path="/wizard3"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Vorgang/VorgangWizard3.jsp"/>                                    
+	<!-- Widerspruchsverwaltung: Hier werden alle Actions registriert, die zur Widerspruchsverwaltung gehören -->
+	<!-- Forward zur Hilfeseite -->
+    	<action	path="/HilfeWiderspruch"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Widerspruch/Hilfe.jsp"/>
+	<!-- Eingabe: In der WiderspruchErfassen.jsp werden die Daten eingegeben. Die Verarbeitung erfolgt hier: -->
+    	<action	path="/widerspruchErfassen"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Widerspruch/ErfassungWiderspruch.jsp"/>
+	<!-- Tree: Widerspruch / Widersprüche  -->
+	<action path="/listWidersprueche" 
+		type="de.hannit.fsch.wsdb.ListWidersprueche">
+		<forward name="ListeWiderspruch" path="/ListeWiderspruch.jsp"/>
+	</action>
+	<!-- Tree: Widerspruch / Klagen  -->
+	<action path="/listKlagen" 
+		type="de.hannit.fsch.wsdb.ListKlagen">
+		<forward name="ListeWiderspruch" path="/ListeKlagen.jsp"/>
+	</action>
+
+	<!-- Tree: Widerspruch / erfassen  -->
+	<!-- WiderspruchsWizard: zentrale Komponente zur Erfassung von Widersprüchen  -->
+	<!-- WiderspruchsWizard Schritt 0: Widerspruchsobjekt in die Session legen und Wizard starten:  -->
+    	<action	path="/ErfassungWiderspruch"
+            type="de.hannit.fsch.wsdb.WiderspruchWizard0">	
+            	<forward name="NextStep" path="/Widerspruch/WiderspruchWizard1.jsp"/>	
+		</action>   
+	<!-- WiderspruchsWizard Schritt 1: Hilfeempfängerdaten erfassen; wsForm nach sessionWS kopieren:  -->		
+    	<action	path="/WiderspruchErfassenSchritt1"
+            type="de.hannit.fsch.wsdb.WiderspruchWizard1"
+            name="wsForm"
+            scope="request"
+            validate="true"
+            input="/Widerspruch/WiderspruchWizard1.jsp">
+            	<forward name="NextStep" path="/Widerspruch/WiderspruchWizard2.jsp"/>	
+		</action>   
+	<!-- WiderspruchsWizard Schritt 2: Vertreter erfassen; ggf Vertreter in sessionWS einfügen:  -->			    	
+    	<action	path="/WiderspruchErfassenSchritt2"
+            type="de.hannit.fsch.wsdb.WiderspruchWizard2"
+            name="wsStep2"
+            scope="request"
+            validate="true"
+            input="/Widerspruch/WiderspruchWizard2.jsp">
+            	<forward name="NextStep" path="/Widerspruch/WiderspruchWizard3.jsp"/>	
+		</action> 	         	
+	<!-- WiderspruchsWizard Schritt 3: sonstige Angaben erfassen; Angaben in sessionWS einfügen:  -->		    	
+	<!-- Ab hier werden die Daten nur noch im Widerspruchsobjekt der SESSION transportiert !!!!!  -->
+    	<action	path="/WiderspruchErfassenSchritt3"
+            type="de.hannit.fsch.wsdb.WiderspruchWizard3"
+            name="wsStep3"
+            scope="request"
+            validate="true"
+            input="/Widerspruch/WiderspruchWizard3.jsp">
+            	<forward name="NextStep" path="/Widerspruch/WiderspruchWizard4.jsp"/>	
+		</action>	
+	<!-- WiderspruchsWizard Schritt 4: Widerspruch in die Datenbank schreiben:  -->		    	
+    	<action	path="/WiderspruchErfassenSchritt4"
+            type="de.hannit.fsch.wsdb.WiderspruchWizard4"
+            name="sessionWS"
+            scope="session"
+            validate="false"
+            input="/Widerspruch/WiderspruchWizard4.jsp">
+            	<forward name="success" path="/Widerspruch/BearbeitungWiderspruch.jsp"/>	
+		</action>	
+	<!-- VorgangsWizard: zentrale Komponente zur Erfassung von Vorgängen  -->
+	<!-- VorgangsWizard Schritt 0: Vorgangsobjekt in die Session legen und Wizard starten:  -->
+    	<action	path="/ErfassungVorgang"
+            type="de.hannit.fsch.wsdb.VorgangWizard0">	
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard1.jsp"/>	
+		</action>   
+	<!-- WiderspruchsWizard Schritt 1: Hilfeempfängerdaten erfassen; wsForm nach sessionWS kopieren:  -->		
+    	<action	path="/VorgangErfassenSchritt1"
+            type="de.hannit.fsch.wsdb.VorgangWizard1"
+            name="vStep1"
+            scope="request"
+            validate="true"
+            input="/Vorgang/VorgangWizard1.jsp">
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard2.jsp"/>	
+		</action>   
+	<!-- VorgangWizard Schritt 2: Vertreter erfassen; ggf Vertreter in Vorgang einfügen:  -->			    	
+    	<action	path="/VorgangErfassenSchritt2"
+            type="de.hannit.fsch.wsdb.VorgangWizard2"
+            name="vStep2"
+            scope="request"
+            validate="true"
+            input="/Vorgang/VorgangWizard2.jsp">
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard3.jsp"/>	
+		</action> 	
+	<!-- VorgangWizard Schritt 2: Aktion für den zurück Button  -->			    	
+    	<action	path="/Wizard2Back"
+            type="de.hannit.fsch.wsdb.VorgangWizard2Back"
+            name="vStep2"
+            scope="request"
+            validate="true"
+            input="/Vorgang/VorgangWizard2.jsp">
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard1.jsp"/>	
+		</action> 		         	
+	<!-- VorgangsWizard Schritt 3: Widerspruch erfassen; Angaben in session einfügen:  -->		    	
+	<!-- Ab hier werden die Daten nur noch in der SESSION transportiert !!!!!  -->
+    	<action	path="/VorgangErfassenSchritt3"
+            type="de.hannit.fsch.wsdb.VorgangWizard3"
+            name="vStep3"
+            scope="request"
+            validate="true"
+            input="/Vorgang/VorgangWizard3.jsp">
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard4.jsp"/>	
+            	<forward name="KeineBerechtigung" path="/Vorgang/VorgangWizard3.jsp"/>            	
+		</action>
+	<!-- VorgangWizard Schritt 3: Aktion für den zurück Button  -->			    	
+    	<action	path="/Wizard3Back"
+            type="de.hannit.fsch.wsdb.VorgangWizard3Back"
+            name="vStep3"
+            scope="request"
+            validate="false"
+            input="/Vorgang/VorgangWizard3.jsp">
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard2.jsp"/>	
+		</action> 				
+	<!-- VorgangsWizard Schritt 4: Alle Wizard Daten nochmals anzeigen:  -->		    	
+    	<action	path="/VorgangErfassenSchritt4"
+            type="de.hannit.fsch.wsdb.VorgangWizard4"
+            name="vStep4"
+            scope="request"
+            validate="true"
+            input="/Vorgang/VorgangWizard4.jsp">
+            	<forward name="success" path="/Vorgang/AnzeigeVorgang.jsp"/>	
+		</action>	
+	<!-- VorgangWizard Schritt 4: Aktion für den zurück Button  -->			    	
+    	<action	path="/Wizard4Back"
+            type="de.hannit.fsch.wsdb.VorgangWizard4Back"
+            name="vorgang"
+            scope="request"
+            validate="false"
+            input="/Vorgang/VorgangWizard4.jsp">
+            	<forward name="NextStep" path="/Vorgang/VorgangWizard3.jsp"/>	
+		</action> 
+	<!-- Vorgangsobjekt aus der Datenbank laden, in die Session legen und Wizard starten:  -->
+    	<action	path="/BearbeitungVorgang"
+            type="de.hannit.fsch.wsdb.BearbeitungVorgang">	
+            	<forward name="NextStep" path="/Vorgang/BearbeitungVorgang.jsp"/>	
+		</action>   		
+	<!-- Tree: Widerspruch / bearbeiten  -->	
+	<action path="/listBearbeitungWiderspruch" 
+		type="de.hannit.fsch.wsdb.ListBearbeitungWiderspruch">
+		<forward name="ListeBearbeitungWiderspruch" path="/ListeBearbeitungWiderspruch.jsp"/>
+	</action>	
+	<!-- Vorgang löschen bestätigen-->	
+    	<action path="/LoeschenWiderspruchConfirm"
+	    type="de.hannit.fsch.wsdb.LoeschenVorgangConfirm">
+		<forward name="success" path="/Vorgang/LoeschenVorgang.jsp"/>            
+		<forward name="KeineBerechtigung" path="/ListeBearbeitungWiderspruch.jsp"/>      		
+	</action>	
+	<!-- Vorgang endgültig als gelöscht markieren -->	
+    	<action path="/LoeschenVorgang"
+	    type="de.hannit.fsch.wsdb.LoeschenVorgang"
+	    name="vorgang"
+        scope="session"
+        validate="false">
+			<forward name="success" path="/ListeBearbeitungWiderspruch.jsp"/>            
+			<forward name="KeineBerechtigung" path="/ListeBearbeitungWiderspruch.jsp"/>      		
+	</action>	
+		<!-- Ereignis zum Widerspruch erfassen:  -->		    	
+    	<action	path="/SpeichernEreignis"
+            type="de.hannit.fsch.wsdb.SpeichernEreignis"
+            name="ereignis"
+            scope="request"
+            validate="false"
+            input="/Vorgang/AnzeigeVorgang.jsp">
+            	<forward name="success" path="/Vorgang/AnzeigeVorgang.jsp"/>       		
+		</action>    	
+    	<action	path="/WiderspruchDetail"
+            type="de.hannit.fsch.wsdb.VorgangDetail"
+            name="vorgang"
+            scope="session"
+            validate="false">
+            	<forward name="success" path="/Vorgang/AnzeigeVorgang.jsp"/>            		
+	</action>             
+	
+	<!-- Benutzerverwaltung: Hier werden alle Actions registriert, die zur Benutzerverwaltung gehören -->
+	<!-- Baum WSDB\Benutzer -->
+    	<action	path="/HilfeBenutzer"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Benutzer/Hilfe.jsp"/>
+	<!-- Baum WSDB\Rechte -->
+	<!-- Zuerst werden die in der Datenbank gespeicherten Benutzer in einer Ergebnisliste aufgelistet: -->
+	<action path="/listeBenutzer" type="de.hannit.fsch.wsdb.ListBenutzer">
+		<forward name="ListeBenutzer" path="/ListeBenutzer.jsp"/>
+		<forward name="UebersichtBenutzer" path="/UebersichtBenutzer.jsp"/>		
+	</action>
+	<!-- Aus der Ergebnisliste kann die Detailseite zur Änderung | Löschung aufgerufen werden: -->		
+	<action	path="/showUserDetails"
+            type="de.hannit.fsch.benutzerverwaltung.SelectSachbearbeiter"
+            name="sb"
+            scope="request"
+            validate="false"
+            input="/pages/Ergebnis.jsp">
+				<forward name="BenutzerRechte" path="/Verwaltung/BearbeitenBenutzerRechte.jsp"/>       
+				<forward name="BenutzerBearbeitung" path="/Verwaltung/BearbeitenBenutzer.jsp"/>   				     
+	</action>
+	<!-- Action für das hinzufügen und löschen von Berechtigungen -->
+    	<action	path="/BenutzerBearbeitungRechte"
+            type="de.hannit.fsch.benutzerverwaltung.BearbeitungBenutzerrechte"
+            name="sb"
+            scope="request"
+            validate="false"
+            input="/Verwaltung/BearbeitenBenutzerRechte.jsp"/>   
+	<!-- Baum WSDB\erfassen -->
+	<!-- Schritt 1: Eingabeformular aufrufen -->
+    	<action	path="/erfassungBenutzer"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Verwaltung/ErfassungBenutzer.jsp"/>
+	<!-- Schritt 2: Speichern der Sachbearbeiterdaten in der Datenbank -->
+    	<action	path="/ErfassungSachbearbeiter"
+            type="de.hannit.fsch.benutzerverwaltung.ErfassungSachbearbeiter"
+            name="sb"
+            scope="request"
+            validate="true"
+            input="/Verwaltung/ErfassungBenutzer.jsp">  
+				<forward name="success" path="/Verwaltung/BearbeitenBenutzerRechte.jsp"/>            
+		</action> 
+	<!-- Baum WSDB\bearbeiten -->
+	<!-- Schritt 1: Übersicht aufrufen -->
+		<action path="/listBenutzer" 
+			type="de.hannit.fsch.wsdb.ListBenutzer">
+			<forward name="ListeBenutzer" path="/ListeBearbeitungBenutzer.jsp"/>
+		</action>
+	<!-- Schritt 3: Update der Sachbearbeiterdaten in der Datenbank -->
+    	<action	path="/UpdateSachbearbeiter"
+            type="de.hannit.fsch.benutzerverwaltung.UpdateSachbearbeiter"
+            name="sb"
+            scope="request"
+            validate="false"
+            input="/Verwaltung/BearbeitenBenutzer.jsp">  
+				<forward name="success" path="/Verwaltung/BearbeitenBenutzerRechte.jsp"/>            
+		</action> 				                   
+	<!-- Schritt 4: Löschen Sachbearbeiterdaten vorbereiten -->
+    	<action	path="/LoeschenBenutzerConfirm"
+            type="de.hannit.fsch.wsdb.LoeschenBenutzerConfirm"
+            name="sb"
+            scope="request"
+            validate="false"
+            input="/ListeBearbeitungBenutzer.jsp">  
+				<forward name="success" path="/Verwaltung/LoeschenBenutzer.jsp"/>            
+		</action> 			
+	<!-- Schritt 5: Sachbearbeiter endgültig löschen  -->
+    	<action	path="/LoeschenBenutzer"
+            type="de.hannit.fsch.wsdb.LoeschenBenutzer"
+            name="sb"
+            scope="request"
+            validate="false"
+            input="/Verwaltung/LoeschenBenutzer.jsp">  
+				<forward name="success" path="/ListeBearbeitungBenutzer.jsp"/>            
+		</action> 			
+	<!-- Folgende Mappings steuern die Verwaltung der Applikation: -->
+	<!-- Ereignisse auflisten -->
+    	<action path="/ListeEreignis"
+	    type="de.hannit.fsch.wsdb.ListEreignis">
+		<forward name="success" path="/ListeEreignis.jsp"/>            
+	</action>
+	<!-- Ereignis erfassen -->	
+    	<action path="/ErfassungEreignis"
+	    type="de.hannit.fsch.wsdb.ErfassungEreignis"
+            name="ereignis"
+            scope="request"
+            validate="true"
+            input="/Verwaltung/ErfassungEreignis.jsp">
+		<forward name="FehlerDatensatzVorhanden" path="/Verwaltung/ErfassungEreignis.jsp"/>   
+		<forward name="success" path="/ListeEreignis.jsp"/>            
+	</action>
+	<!-- Ereignisse bearbeiten -->	
+    	<action path="/BearbeitenEreignis"
+	    type="de.hannit.fsch.wsdb.BearbeitenEreignis"
+            name="ereignis"
+            scope="request"
+            validate="false">
+		<forward name="success" path="/Verwaltung/BearbeitenEreignis.jsp"/>            
+	</action>
+	<!-- Ereignisse aktualisieren -->	
+    	<action path="/UpdateEreignis"
+	    type="de.hannit.fsch.wsdb.UpdateEreignis"
+            name="ereignis"
+            scope="request"
+            validate="true"
+            input="/Verwaltung/BearbeitenEreignis.jsp">
+		<forward name="success" path="/ListeEreignis.jsp"/>            
+	</action>	
+	<!-- Ereigniss löschen bestätigen-->	
+    	<action path="/LoeschenEreignisConfirm"
+	    type="de.hannit.fsch.wsdb.LoeschenEreignisConfirm"
+            name="ereignis"
+            scope="request"
+            validate="false">
+		<forward name="success" path="/Verwaltung/LoeschenEreignis.jsp"/>            
+	</action>	
+	<!-- Ereigniss löschen -->	
+    	<action path="/LoeschenEreignis"
+	    type="de.hannit.fsch.wsdb.LoeschenEreignis"
+            name="ereignis"
+            scope="request"
+            validate="false">
+		<forward name="success" path="/ListeEreignis.jsp"/>            
+	</action>		
+	<!-- Themen auflisten -->
+    	<action path="/listThema"
+	    type="de.hannit.fsch.wsdb.ListThema">
+            	<forward name="ListeThema" path="/ListeThema.jsp"/>
+	</action>		
+	<!-- CRUD Action für die Klasse Ereignis. -->
+	<!-- Aufruf: AnzeigeVorgang.jsp -->
+	<!-- Zweck: Ändern und löschen bereits erfasster Ereignisse aus dem Verfahrensverlauf -->
+    	<action path="/CRUDEreignis"
+	    type="de.hannit.fsch.wsdb.CRUDEreignis"
+            name="ereignis"
+            scope="request"
+            validate="false"
+            input="/Vorgang/AnzeigeVorgang.jsp">
+		<!--forward name="LIST" path="/listThema.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEThema.jsp"/-->			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEEreignis.jsp"/>			
+		<!--forward name="DELETE" path="/Verwaltung/DELETEThema.jsp"/-->				
+		</action>
+	<!-- CRUD Action für die Klasse Thema -->
+    	<action path="/CRUDThema"
+	    type="de.hannit.fsch.wsdb.CRUDThema"
+            name="thema"
+            scope="request"
+            validate="false"
+            input="/ListeThema.jsp">
+		<forward name="ListeThema" path="/listThema.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEThema.jsp"/>			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEThema.jsp"/>			
+		<forward name="DELETE" path="/Verwaltung/DELETEThema.jsp"/>					
+		</action>
+	<!-- Die CRUD Action wird für die Aktionen, die validiert werden, 'überladen' -->		
+	<!-- Dies ist leider notwendig, um dem Validator die verschiedenen Inputs klarzumachen-->			
+	<!-- Thema neu erfassen -->
+    	<action path="/CREATEThema"
+	    type="de.hannit.fsch.wsdb.CRUDThema"
+            name="thema"
+            scope="request"
+            validate="true"
+            input="/Verwaltung/CREATEThema.jsp">
+		<forward name="ListeThema" path="/listThema.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEThema.jsp"/>			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEThema.jsp"/>			
+		<forward name="DELETE" path="/Verwaltung/DELETEThema.jsp"/>		            
+		</action>
+	<!-- Thema neu erfassen -->
+    	<action path="/UPDATEThema"
+	    type="de.hannit.fsch.wsdb.CRUDThema"
+            name="thema"
+            scope="request"
+            validate="true"
+            input="/Verwaltung/UPDATEThema.jsp">
+		<forward name="ListeThema" path="/listThema.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEThema.jsp"/>			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEThema.jsp"/>			
+		<forward name="DELETE" path="/Verwaltung/DELETEThema.jsp"/>		            
+		</action>		
+
+	<!-- Eine neue Einrichtung erfassen -->	
+	<!-- CRUD Action für die Klasse Einrichtung -->
+    	<action path="/CRUDEinrichtung"
+	    type="de.hannit.fsch.wsdb.CRUDEinrichtung"
+            name="einrichtung"
+            scope="request"
+            validate="false"
+            input="/ListeEinrichtung.jsp">
+		<forward name="LIST" path="/listEinrichtung.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEEinrichtung.jsp"/>			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEEinrichtung.jsp"/>			
+		<forward name="DELETE" path="/Verwaltung/DELETEEinrichtung.jsp"/>					
+		</action>
+	<!-- Die CRUD Action wird für die Aktionen, die validiert werden, 'überladen' -->		
+	<!-- Dies ist leider notwendig, um dem Validator die verschiedenen Inputs klarzumachen-->			
+	<!-- Einrichtung neu erfassen -->
+    	<action path="/CREATEEinrichtung"
+	    type="de.hannit.fsch.wsdb.CRUDEinrichtung"
+            name="einrichtung"
+            scope="request"
+            validate="true"
+            input="/Verwaltung/CREATEEinrichtung.jsp">
+		<forward name="LIST" path="/listEinrichtung.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEEinrichtung.jsp"/>			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEEinrichtung.jsp"/>			
+		<forward name="DELETE" path="/Verwaltung/DELETEEinrichtung.jsp"/>          
+		</action>
+	<!-- Einrichtung ändern -->
+    	<action path="/UPDATEEinrichtung"
+	    type="de.hannit.fsch.wsdb.CRUDEinrichtung"
+            name="einrichtung"
+            scope="request"
+            validate="false"
+            input="/Verwaltung/UPDATEEinrichtung.jsp">
+		<forward name="LIST" path="/listEinrichtung.do"/>			
+		<forward name="CREATE" path="/Verwaltung/CREATEEinrichtung.jsp"/>			
+		<forward name="UPDATE" path="/Verwaltung/UPDATEEinrichtung.jsp"/>			
+		<forward name="DELETE" path="/Verwaltung/DELETEEinrichtung.jsp"/>	            
+		</action>
+	<!-- Forward zur Hilfeseite -->
+    	<action	path="/HilfeAllgemein"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Dokumentation/user/Hilfe.htm"/>	
+    	<action	path="/HilfeVerwaltung"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/Verwaltung/Hilfe.jsp"/>	
+    	<action path="/ErfassungEinrichtung"
+	    type="de.hannit.fsch.wsdb.ErfassungEinrichtung"
+            name="einrichtungForm"
+            scope="request"
+            validate="true"
+            input="/pages/ErfassungEinrichtung.jsp">
+		<forward name="success" path="/pages/ListeEinrichtung.jsp"/>            
+	</action>
+	<action path="/listEinrichtung" type="de.hannit.fsch.wsdb.ListeEinrichtung"/>	
+	<!-- Schnellsuche im Kopf (Head.jsp) -->		
+	<action	path="/Schnellsuche"
+            type="de.hannit.fsch.wsdb.Schnellsuche"
+            name="qsForm"
+            scope="request"
+            validate="false"
+            input="/html/Head.jsp">
+			<forward name="KeinTreffer" path="/Widerspruch/FehlerKeinSchnellsucheTreffer.jsp"/>
+        	<forward name="ListeWiderspruch" path="/ListeBearbeitungWiderspruch.jsp"/>
+        </action>		
+	<!-- Abmeldung und Beendigung der Sitzung -->
+	<action path="/logout" type="de.hannit.fsch.wsdb.LogoutAction"/>
+	
+	<!-- Import Module für Datatransformations aus der alten DB -->
+	<action path="/import" type="de.hannit.fsch.datenbank.ImportModule"/>	
+
+
+    <!-- sample input and input submit actions
+
+
+
+        <action
+
+            path="/Input"
+
+            type="org.apache.struts.actions.ForwardAction"
+
+            parameter="/pages/Input.jsp"/>
+
+
+
+        <action
+
+            path="/InputSubmit"
+
+            type="app.InputAction"
+
+            name="inputForm"
+
+            scope="request"
+
+            validate="true"
+
+            input="/pages/Input.jsp"/>
+
+
+
+    end samples -->
+
+
+
+
+
+    </action-mappings>
+
+
+
+
+
+<!-- ===================================== Controller Configuration -->
+
+
+
+    <controller 
+		processorClass="org.apache.struts.tiles.TilesRequestProcessor"
+		nocache="false"/>
+
+
+
+
+
+<!-- ================================ Message Resources Definitions -->
+<message-resources parameter="WSDBResources"/>
+<!-- ======================================= Plug Ins Configuration -->
+
+
+  <!-- ========== Tiles plugin ===================  -->
+  <!--												-->
+  <!--
+     This plugin initialize Tiles definition factory. This later can takes some
+	 parameters explained here after. The plugin first read parameters from web.xml, then
+	 overload them with parameters defined here. All parameters are optional.
+	 The plugin should be declared in each struts-config file.
+       - definitions-config: (optional) 
+            Specify configuration file names. There can be several comma 
+		    separated file names (default: ?? )
+       - moduleAware: (optional - struts1.1) 
+            Specify if the Tiles definition factory is module aware. If true (default), 
+			there will be one factory for each Struts module. 
+			If false, there will be one common factory for all module. In this later case, 
+			it is still needed to declare one plugin per module. The factory will be 
+			initialized with parameters found in the first initialized plugin (generally the
+			one associated with the default module).
+			  true : One factory per module. (default)
+			  false : one single shared factory for all modules
+	   - definitions-parser-validate: (optional)
+	        Specify if xml parser should validate the Tiles configuration file.
+			  true : validate. DTD should be specified in file header. (default)
+			  false : no validation
+			  
+	  Paths found in Tiles definitions are relative to the main context.
+  -->
+  <!-- comment following if struts1.0.x -->
+  <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    <set-property property="definitions-config" 
+	                 value="/WEB-INF/tiles-defs.xml" />
+    <set-property property="moduleAware" value="true" />
+    <set-property property="definitions-parser-validate" value="true" />
+  </plug-in>
+
+  <!-- end comment if struts1.0.x -->
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+        property="pathnames"
+        value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>
+

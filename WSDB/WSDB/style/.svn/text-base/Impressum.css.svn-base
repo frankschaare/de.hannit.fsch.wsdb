@@ -1,0 +1,65 @@
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+
+td.rechts {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+
+td.xml {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #426F9B;
+	background-color: #FFFFFF;
+	line-height: normal;
+	letter-spacing: 2px;
+	word-spacing: normal;
+	vertical-align: baseline;
+	text-align: left;
+	white-space: normal;
+	
+}
+th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #426F9B;
+	color: #FFFFFF;
+}
+table {
+	border: thin solid #FFFFFF;
+
+}
+
+table.Rahmen {
+	border: thin solid #8EB3D2;
+
+}

@@ -1,0 +1,68 @@
+<%-- Author: Frank.Schaare@HannIT.de, 19.11.2002 --%>
+
+<%@ page 	language="java" 
+			session="true"
+			info="Navigationsseite"
+			isErrorPage="false"
+			contentType="text/html; charset=ISO-8859-15"
+%>
+<%@ taglib uri="/tags/struts-bean" prefix="bean" %>
+<%@ taglib uri="/tags/struts-html" prefix="html" %>
+<%@ taglib uri="/tags/struts-logic" prefix="logic" %>
+
+<html>
+<head>
+<title></title>
+<!--link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/style/Standard.css"-->
+<link rel="stylesheet" href="<%= request.getContextPath() %>/style/screen.css" type="text/css" media="screen, print" />
+</head>
+
+<body>
+<div align="center">
+<table width="100%"  border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>Widerspruch</strong></td>
+  </tr>
+  <tr>
+    <td><div align="center">-</div></td>
+    <td><a href="<%= request.getContextPath() %>/pages/WiderspruchErfassen.jsp" target="main">erfassen</a></td>
+  </tr>
+  <tr>
+    <td><div align="center">-</div></td>
+    <td><a href="/WSDB/listWidersprueche.do" target="main">&auml;ndern</a></td>
+  </tr>
+  <tr>
+    <td><div align="center">-</div></td>
+    <td>l&ouml;schen</td>
+  </tr>  
+</table>
+<table width="80%"  border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td colspan="2"><strong>Benutzer</strong></td>
+  </tr>
+  <tr>
+    <td><div align="center">-</div></td>
+    <td>erfassen</td>
+  </tr>
+  <tr>
+    <td><div align="center">-</div></td>
+    <td><a href="/WSDB/list.do" target="main">&auml;ndern</a></td>
+  </tr>
+  <tr>
+    <td><div align="center">-</div></td>
+    <td>l&ouml;schen</td>
+  </tr>  
+</table>
+<!-- ======================== Beginn Tabelle Verwaltung======================== -->
+<%@ include file="Verwaltung.jsp"%>	
+<!-- ======================== Ende Tabelle Verwaltung ========================= -->	
+</div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Unbenanntes Dokument</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+
+body
+{
+font-family: verdana
+}
+td.pixel
+{
+width:1px;
+height: 1px;
+}
+-->
+</style>
+
+</head>
+
+<body>
+<table width="107" height="29" border="0" cellspacing="0">
+<tbody>
+  <tr>
+    <td width="1" height="1" bgcolor="#D4D0C8" class="pixel"></td>
+    <td width="1" bgcolor="#D4D0C8" class="pixel"></td>
+    <td width="93"></td>
+    <td width="1" bgcolor="#D4D0C8" class="pixel"></td>
+    <td width="1" bgcolor="#D4D0C8" class="pixel"></td>
+  </tr>
+  <tr>
+    <td height="1" bgcolor="#D4D0C8" class="pixel"></td>
+    <td class="pixel"></td>
+    <td bgcolor="#D4D0C8"></td>
+    <td class="pixel" bgcolor="#404040"></td>
+    <td class="pixel" bgcolor="#D4D0C8"></td>
+  </tr>
+  <tr>
+    <td height="27">&nbsp;</td>
+    <td bgcolor="#D4D0C8">&nbsp;</td>
+    <td bgcolor="#D4D0C8"><div align="center">Erweitert</div></td>
+    <td bgcolor="#808080">&nbsp;</td>
+    <td bgcolor="#404040">&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+</body>
+</html>

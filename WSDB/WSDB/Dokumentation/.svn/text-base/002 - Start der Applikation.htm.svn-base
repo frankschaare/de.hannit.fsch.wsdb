@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dokumentation Widerspruchsdatebank - Benutzerauthentifizierung</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="../style/Dokumentation.css">
+</head>
+
+<body>
+<div align="center"><h4>Start der Applikation</h4></div>
+<p>Sobald sich eine Benutzer zum Webserver verbindet, wird eine Benutzersitzung (Session) erstellt. Im Webserver ist ein 'SessionBindingListener' 
+konfiguriert, der über die Sitzungen wacht. Jede neue Session durchläuft die Methode 'SessionCreated', wo folgendes gemacht wird:</p>
+
+</body>
+</html>
